@@ -1,4 +1,43 @@
+<template>
+  <div class="greetings">
+    <h1 class="green">{{ msg }}</h1>
+    <h3>
+      You've successfully created a project with
+      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+    </h3>
+    <div>
+    sanity stuff
+    <h1>
+      {{ title }}
+    </h1>
+</div>
+  </div>
+</template>
+
 <script setup>
+import { useSanityFetcher } from 'vue-sanity';
+
+//state
+const title = useSanityFetcher(// query
+      () => `*[_type == "post"][0].title`,
+      // initial value
+      'Title - Default',
+      // mapper
+      result => `Title - ${result}`,
+      // options
+      {
+        listen: true,
+        clientOnly: true,
+      })
+;
+console.log(title)
+
+// OR use a factory function
+// const { data: title } = useSanityFetcher(
+//   () => `*[slug.current == ${slug.value}][0].title`
+// )
+
 defineProps({
   msg: {
     type: String,
@@ -6,17 +45,6 @@ defineProps({
   }
 })
 </script>
-
-<template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
-  </div>
-</template>
 
 <style scoped>
 h1 {
