@@ -20,7 +20,9 @@ useSanityClient({
     })
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "css/base";
+
 header {
   line-height: 1.5;
   max-height: 100vh;

@@ -46,7 +46,7 @@ defineProps({
 })
 </script>
 
-<style scoped>
+<style>
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
