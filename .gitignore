@@ -16,7 +16,7 @@ coverage
 
 /cypress/videos/
 /cypress/screenshots/
-
+/sanity-a-state-of-antiquity
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

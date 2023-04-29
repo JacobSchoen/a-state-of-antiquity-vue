@@ -1,7 +1,5 @@
 <template>
     <div class="bg-primary">
-        <h1>Post {{ BlogData.title }}</h1>
-        <img :src="BlogData.imageUrl" />
         {{ BlogData.body[0].children[0].text }}
     </div>
 </template>
