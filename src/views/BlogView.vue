@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-primary">
+    <div class="bg-dark">
         Blog page
         <div>
             <DataView :value="Posts">
@@ -18,7 +18,6 @@
                                 </div>
                                 <div  class="p-3">
                                     <div
-                                        
                                         class="text-900 font-semibold text-xl mb-3"
                                     >
                                         {{slotProps.data.title}}

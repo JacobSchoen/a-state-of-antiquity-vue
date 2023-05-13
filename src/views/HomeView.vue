@@ -1,5 +1,5 @@
 <template>
-    <main class="bg-primary">the home view</main>
+    <main class="bg-dark">the home view</main>
 </template>
 
 <script setup>

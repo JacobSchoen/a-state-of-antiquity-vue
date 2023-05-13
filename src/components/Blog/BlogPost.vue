@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-primary">
+    <div class="bg-dark">
         {{ BlogData.body[0].children[0].text }}
     </div>
 </template>

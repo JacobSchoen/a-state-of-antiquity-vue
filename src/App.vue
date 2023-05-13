@@ -1,7 +1,7 @@
 <template>
-    <main class="app__main">
+    <main class="flex flex-column">
         <NavBar />
-        <RouterView  class="app__routerView" />
+        <RouterView  class="app__routerView flex flex-column min-h-screen" />
     </main>
 </template>
 
@@ -19,17 +19,4 @@ useSanityClient({
 <style lang="scss">
 @import 'css/main';
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-
-.app__main {
-
-}
-.app__routerView {
-    display: flex;
-    align-content: center;
-    flex: 1 1;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-
-}
 </style>
