@@ -1,19 +1,19 @@
 <template>
-    <div class="navBar bg-light">
+    <div class="flex p-5 vertical-align-middle bg-light">
         <section class="navBar__logoSection">
-            <img class="navBar__logo" :src="logo" />
+            <img class="" :src="logo" />
         </section>
-        <section class="navBar__linkSection">
-            <section class="navBar__link">
+        <section class="flex">
+            <section class="m-3">
                 <router-link class="rl-primary" to="/">Home</router-link>
             </section>
-            <section class="navBar__link">
+            <section class="m-3">
                 <router-link class="rl-primary" to="/blog">Blog</router-link>
             </section>
-            <section class="navBar__link">
+            <section class="m-3">
                 <router-link class="rl-primary" to="/shop">Shop</router-link>
             </section>
-            <section class="navBar__link">
+            <section class="m-3">
                 <router-link class="rl-primary" to="/contactUs"
                     >Contact Us</router-link
                 >
@@ -23,25 +23,9 @@
 </template>
 
 <script setup>
-import logo from '@/assets/logo-placeholder.png'
+import logo from '@/assets/logo-placeholder.svg'
 </script>
 
 <style lang="scss">
-.navBar {
-    display: flex;
-}
 
-.navBar__linkSection{
-    display: flex;
-    align-items: center;
-}
-.navBar__link {
-    padding: 0.5em;
-}
-.navBar__logoSection{
-    display: flex;
-}
-.navBar__logo{
-    width:50%;
-}
 </style>
