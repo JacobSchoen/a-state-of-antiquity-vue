@@ -15,6 +15,8 @@ import 'primeflex/primeflex.css'
 import DataView from 'primevue/dataview'
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
 import Skeleton from 'primevue/skeleton'
+import Image from 'primevue/image';
+
 
 const app = createApp(App)
 
@@ -24,6 +26,7 @@ app.use(PrimeVue)
 
 app.component('DataView', DataView)
 app.component('DataViewLayoutOptions', DataViewLayoutOptions)
+app.component('Image', Image)
 app.component('Skeleton', Skeleton)
 
 app.mount('#app')
