@@ -1,5 +1,5 @@
 import {ref, computed } from 'vue'
-import { useSanityFetcher } from 'vue-sanity'
+import { client } from '../lib/sanityClient'
 import {defineStore } from 'pinia'
 
 export const useProductStore = defineStore('Product', () => {
@@ -8,22 +8,18 @@ export const useProductStore = defineStore('Product', () => {
     const getProducts = computed(() => products)
 
     function fetchProducts() {
-        useSanityFetcher(
-            // query
-            () => `*[_type == "product"]`,
-            // initial value
-            'Title - Default',
-            // mapper
-            (result) => {
-                console.log('in action', result)
-                products.value = result
+        const query = '*[_type == "product"]';
+
+        client.fetch(query).then(
+            result => {
+              console.log('this.loading = false');
+              products.value = result
+
             },
-            // options
-            {
-                listen: true,
-                clientOnly: true,
+            error => {
+              this.error = error;
             }
-        )
+          );
     }
 
     return { products, getProducts, fetchProducts}
