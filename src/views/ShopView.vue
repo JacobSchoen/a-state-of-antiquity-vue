@@ -2,16 +2,15 @@
     <div class="bg-dark">
         Shop page! 
         <section v-for="(product, index) in Products" :key="index">
-            {{product.name}}
-            <Image :src=" urlFor(product.image[0])" alt="Image" width="250" />
+            <Product :product="product"/>
         </section>
     </div>
 </template>
 
 <script setup>
+import Product from '../components/Shop/product.vue'
 import { useProductStore } from '@/stores/productStore'
 import { onMounted, computed } from 'vue';
-import { urlFor } from '../lib/sanityClient'
 
 
 //store
