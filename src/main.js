@@ -12,9 +12,10 @@ import 'primevue/resources/themes/bootstrap4-light-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeflex/primeflex.css'
 
+import Button from 'primevue/button'
 import DataView from 'primevue/dataview'
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
-import Skeleton from 'primevue/skeleton'
+import ProgressSpinner from 'primevue/progressspinner';
 import Image from 'primevue/image';
 
 
@@ -24,9 +25,10 @@ app.use(createPinia())
 app.use(router)
 app.use(PrimeVue)
 
+app.component('Button', Button)
 app.component('DataView', DataView)
 app.component('DataViewLayoutOptions', DataViewLayoutOptions)
 app.component('Image', Image)
-app.component('Skeleton', Skeleton)
+app.component('ProgressSpinner', ProgressSpinner)
 
 app.mount('#app')
