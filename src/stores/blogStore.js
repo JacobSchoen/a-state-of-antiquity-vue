@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import { useSanityFetcher } from 'vue-sanity'
+import { client } from '../lib/sanityClient'
 import { defineStore } from 'pinia'
 
 export const useBlogStore = defineStore('blog', () => {
@@ -8,23 +8,18 @@ export const useBlogStore = defineStore('blog', () => {
     const getblogs = computed(() => blogPosts)
 
     function getBlogPosts() {
-        useSanityFetcher(
-            // query
-            () => `*[_type == "post"]{
-              _id, "imageUrl": mainImage.asset->url, body, title, publishedAt, author
-          } | order(_createdAt desc)`,
-            // initial value
-            'Title - Default',
-            // mapper
-            (result) => {
-                console.log('in action', result)
+        const query = `*[_type == "post"]{
+            _id, "imageUrl": mainImage.asset->url, body, title, publishedAt, author
+        } | order(_createdAt desc)`
+
+        client.fetch(query).then(
+            result => {
+                console.log(result);
                 blogPosts.value = result
             },
-            // options
-            {
-                listen: true,
-                clientOnly: true,
-            }
+            error => {
+                this.error = error;
+              }
         )
     }
 

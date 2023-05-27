@@ -86,7 +86,6 @@
 
 <script setup>
 import { useBlogStore } from '@/stores/blogStore'
-// import { useSanityFetcher } from 'vue-sanity'
 import { onMounted, ref, computed } from 'vue'
 import BlogPost from '../components/Blog/BlogPost.vue'
 

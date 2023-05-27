@@ -6,6 +6,9 @@
 a {
     color: black;
 }
+a:any-link {
+    text-decoration: none;
+}
 body,
 h1,
 h2,
