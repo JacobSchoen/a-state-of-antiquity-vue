@@ -17,6 +17,8 @@ import DataView from 'primevue/dataview'
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
 import ProgressSpinner from 'primevue/progressspinner';
 import Image from 'primevue/image';
+import InputText from 'primevue/inputtext';
+
 
 
 const app = createApp(App)
@@ -29,6 +31,7 @@ app.component('Button', Button)
 app.component('DataView', DataView)
 app.component('DataViewLayoutOptions', DataViewLayoutOptions)
 app.component('Image', Image)
+app.component('InputText', InputText)
 app.component('ProgressSpinner', ProgressSpinner)
 
 app.mount('#app')

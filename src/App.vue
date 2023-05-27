@@ -1,7 +1,7 @@
 <template>
-    <main class="flex flex-column">
+    <main class="flex flex-column h-screen">
         <NavBar />
-        <RouterView  class="app__routerView flex flex-column min-h-screen" />
+        <RouterView class="flex-1" />
     </main>
 </template>
 

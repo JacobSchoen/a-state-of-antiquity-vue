@@ -14,23 +14,26 @@
                 </div>
                 <div class="flex align-items-center mb-4">
                     <div class="flex flex-column">
-                        <span class="block font-semibold mb-1">{{ product.name }}</span
-                        ><span class="text-secondary text-sm"
-                            >{{ product.details }}</span
-                        >
+                        <span class="block font-semibold mb-1">{{
+                            product.name
+                        }}</span
+                        ><span class="text-secondary text-sm">{{
+                            product.details
+                        }}</span>
                     </div>
-                    <span class="font-medium text-xl ml-auto">${{product.price}}</span>
+                    <span class="font-medium text-xl ml-auto"
+                        >${{ product.price }}</span
+                    >
                 </div>
                 <button
-                    class="p-button p-component p-button-outlined w-full"
+                    class="p-button p-component p-button-outlined w-full bg-light"
                     type="button"
                     aria-label="Add to Cart"
                 >
                     <span
                         class="p-button-icon p-button-icon-left pi pi-shopping-cart"
                     ></span
-                    ><span class="p-button-label">Add to Cart</span
-                    >
+                    ><span class="p-button-label">Add to Cart</span>
                 </button>
             </div>
         </section>
