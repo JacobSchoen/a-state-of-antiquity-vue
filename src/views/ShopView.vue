@@ -3,7 +3,14 @@
         <DataView :value="Products" :layout="layout" paginator :rows="15">
             <template #header>
                 <div class="flex justify-content-between">
-                    <InputText type="text" v-model="value" />
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search" />
+                        <InputText
+                            type="text"
+                            v-model="value"
+                            placeholder="Search"
+                        />
+                    </span>
                     <DataViewLayoutOptions v-model="layout" />
                 </div>
             </template>
