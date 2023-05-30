@@ -3,18 +3,17 @@ import { client } from '../lib/sanityClient'
 import {defineStore } from 'pinia'
 
 export const useProductStore = defineStore('Product', () => {
-    let products = ref()
+    let paintingProducts = ref()
+    let studioProducts = ref()
 
     const getProducts = computed(() => products)
 
-    function fetchProducts() {
-        const query = '*[_type == "product"]';
+    function fetchStudioProducts() {
+        const query = `*[_type == "product" && ProductType == "studio"]`;
 
         client.fetch(query).then(
             result => {
-              console.log('this.loading = false');
-              products.value = result
-
+                studioProducts.value = result
             },
             error => {
               this.error = error;
@@ -22,5 +21,18 @@ export const useProductStore = defineStore('Product', () => {
           );
     }
 
-    return { products, getProducts, fetchProducts}
+    function fetchPaintingProducts() {
+      const query = `*[_type == "product" && ProductType == "painting"]`;
+
+      client.fetch(query).then(
+          result => {
+            paintingProducts.value = result
+          },
+          error => {
+            this.error = error;
+          }
+        );
+  }
+
+    return { paintingProducts, studioProducts, getProducts, fetchStudioProducts, fetchPaintingProducts}
 })

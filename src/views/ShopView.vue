@@ -1,6 +1,6 @@
 <template>
     <div class="bg-dark">
-        <DataView :value="Products" :layout="layout" paginator :rows="15">
+        <DataView v-if="Products" :value="Products" :layout="layout">
             <template #header>
                 <div class="flex justify-content-between">
                     <span class="p-input-icon-left">
@@ -11,7 +11,6 @@
                             placeholder="Search"
                         />
                     </span>
-                    <DataViewLayoutOptions v-model="layout" />
                 </div>
             </template>
 
@@ -138,23 +137,38 @@
                 </div>
             </template>
         </DataView>
+        <section class="flex justify-content-center" v-else>
+            <ProgressSpinner />
+        </section>
     </div>
 </template>
 
 <script setup>
 import { urlFor } from '../lib/sanityClient'
+import { useRoute } from 'vue-router'
 import { useProductStore } from '@/stores/productStore'
 import { onMounted, computed, ref } from 'vue'
+
+const route = useRoute()
+let productType = route.name
+const layout = ref('grid')
 
 //store
 const store = useProductStore()
 //state
-const Products = computed(() => store.products)
-const layout = ref('grid')
+const Products = computed(() => {
+    if (productType === 'studioShop') {
+        return store.studioProducts
+    } else {
+        return store.paintingProducts
+    }
+})
 
 onMounted(() => {
-    if (!store.products) {
-        store.fetchProducts()
+    if (productType === 'studioShop' && !store.studioProducts) {
+        store.fetchStudioProducts()
+    } else if (productType === 'paintingShop' && !store.paintingProducts) {
+        store.fetchPaintingProducts()
     }
 })
 </script>

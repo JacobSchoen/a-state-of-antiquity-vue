@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sanity/client": "^3.4.1",
+    "@vue-stripe/vue-stripe": "^4.5.0",
     "pinia": "^2.0.28",
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",

@@ -4,19 +4,24 @@
             <img class="" :src="logo" />
         </section>
         <section class="flex">
-            <section class="m-3">
+            <section class="m-3 cursor-pointer">
                 <router-link class="rl-primary" to="/">Home</router-link>
             </section>
-            <section class="m-3">
+            <section class="m-3 cursor-pointer">
                 <router-link class="rl-primary" to="/blog">Blog</router-link>
             </section>
-            <section class="m-3">
+            <section class="m-3 cursor-pointer">
                 <router-link class="rl-primary" to="/shop">Shop</router-link>
             </section>
-            <section class="m-3">
+            <section class="m-3 cursor-pointer">
                 <router-link class="rl-primary" to="/contactUs"
-                    >Contact Us</router-link
+                    >About</router-link
                 >
+            </section>
+            <section class="m-3 cursor-pointer">
+                <router-link class="rl-primary" to="/cart">
+                    <i class="pi pi-shopping-bag"></i>
+                </router-link>
             </section>
         </section>
     </div>
@@ -26,6 +31,4 @@
 import logo from '@/assets/logo-placeholder.svg'
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

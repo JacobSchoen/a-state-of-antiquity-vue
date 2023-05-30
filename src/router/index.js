@@ -19,6 +19,18 @@ const router = createRouter({
       path: '/shop',
       name: 'Shop',
       component: () =>
+      import("../views/ShopDirectory.vue"),
+    },
+    {
+      path: '/shop/studio',
+      name: 'studioShop',
+      component: () =>
+      import("../views/ShopView.vue"),
+    },
+    {
+      path: '/shop/painting',
+      name: 'paintingShop',
+      component: () =>
       import("../views/ShopView.vue"),
     },
     {
@@ -26,6 +38,12 @@ const router = createRouter({
       name: 'product',
       component: () =>
       import("../components/Shop/ProductDetail.vue"),
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () =>
+      import("../views/CartView.vue"),
     },
     {
       path: '/contactUs',

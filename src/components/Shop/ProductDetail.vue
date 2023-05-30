@@ -40,12 +40,10 @@
                 </div>
                 <div class="col-12 lg:col-4">
                     <div class="m-2">
-                        <div class="text-xl font-bold mb-4">
+                        <div class="text-xl font-bold mb-3">
                             {{ product.name }}
                         </div>
-                        <div class="text-xl font-bold mb-2 mt-2">
-                            Product Details
-                        </div>
+                        <div class="font-bold mb-2 mt-2">Product Details</div>
                         <div class="text-800 p-0 mx-0 mt-0 mb-4">
                             {{ product.details }}
                         </div>
@@ -60,38 +58,23 @@
                                 class="p-inputnumber p-component p-inputwrapper p-inputwrapper-filled p-inputnumber-buttons-horizontal border-1 surface-border border-round"
                                 ><input
                                     class="p-inputtext p-component p-inputnumber-input w-2rem text-center py-2 px-1 border-transparent outline-none shadow-none"
-                                    aria-valuemin="0"
-                                    aria-valuenow="1" />
+                                    :value="store.qty" />
                                 <button
                                     class="p-button p-component p-button-icon-only p-inputnumber-button p-inputnumber-button-up p-button-text text-600 hover:text-primary py-1 px-1"
                                     type="button"
                                     tabindex="-1"
-                                    aria-hidden="true"
+                                    @click="store.incQty"
                                 >
                                     <span class="pi pi-plus p-button-icon">
-                                    </span>
-                                    <span class="p-button-label">&nbsp;</span>
-                                    <span
-                                        class="p-ink"
-                                        role="presentation"
-                                        aria-hidden="true"
-                                    >
                                     </span>
                                 </button>
                                 <button
                                     class="p-button p-component p-button-icon-only p-inputnumber-button p-inputnumber-button-down p-button-text text-600 hover:text-primary py-1 px-1"
                                     type="button"
                                     tabindex="-1"
-                                    aria-hidden="true"
+                                    @click="store.decQty"
                                 >
                                     <span class="pi pi-minus p-button-icon">
-                                    </span>
-                                    <span class="p-button-label">&nbsp;</span>
-                                    <span
-                                        class="p-ink"
-                                        role="presentation"
-                                        aria-hidden="true"
-                                    >
                                     </span></button
                             ></span>
                             <div
@@ -100,7 +83,7 @@
                                 <button
                                     class="p-button p-component flex-1 mr-5"
                                     type="button"
-                                    aria-label="Add to Cart"
+                                    @click="store.onAdd(product, store.qty)"
                                 >
                                     <span class="p-button-label"
                                         >Add to Cart</span
@@ -127,9 +110,12 @@
 <script setup>
 import { onBeforeMount, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { useCartStore } from '../../stores/CartStore'
 import { client, urlFor } from '../../lib/sanityClient'
 
 const route = useRoute()
+const store = useCartStore()
+
 let loading = ref(true)
 let slug = route.params.productId
 let product = ref()

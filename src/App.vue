@@ -1,6 +1,7 @@
 <template>
     <main class="flex flex-column h-screen">
         <NavBar />
+        <Toast />
         <RouterView class="flex-1" />
     </main>
 </template>
